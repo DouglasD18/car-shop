@@ -55,7 +55,7 @@ describe('Car Service', () => {
 	});
 
 	describe('ReadOne Car', () => {
-    const id = '69cf1fc6498565d94eba52cd'
+    // const id = '69cf1fc6498565d94eba52cd'
 
     beforeEach(() => {
       sinon.stub(carModel, 'readOne')
@@ -84,4 +84,21 @@ describe('Car Service', () => {
     //   expect(error.error).to.be.deep.equal(ErrorTypes.EntityNotFound);
 		// });
 	});
+
+  describe('Delete a car', () => {
+    beforeEach(() => {
+      sinon.stub(carModel, 'readOne')
+			.onCall(0).resolves(carMockWithId) 
+      sinon.stub(carModel, 'delete')
+        .onCall(0).resolves(carMockWithId)
+    });
+
+    afterEach(sinon.restore);
+
+    it('Should return the car deleted',async () => {
+      const car = await carService.delete(carMockWithId._id);
+
+      expect(car).to.be.deep.equal(carMockWithId);
+    });
+  });
 });
