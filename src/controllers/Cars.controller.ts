@@ -27,6 +27,14 @@ class CarController {
 
     return res.status(200).json(result);
   }
+
+  public async delete(req: Request, res: Response<ICar>) {
+    const deleted = await this._service.delete(req.params.id);
+
+    if (!deleted) return false;
+
+    return res.status(204).json(deleted);
+  }
 }
 
 export default CarController;
