@@ -10,7 +10,6 @@ type ErrorResponseObject = {
 
 export type ErrorCatalog = {
   [key in ErrorTypes]: ErrorResponseObject
-
 };
 
 export const errorCatalog: ErrorCatalog = {
