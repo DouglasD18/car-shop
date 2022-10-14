@@ -16,8 +16,6 @@ class MotorcycleService implements IService<IMotorcycle> {
   public async read(): Promise<IMotorcycle[]> {
     const cars = await this._motorcycles.read();
 
-    if (!cars) return [];
-
     return cars;
   }
 
