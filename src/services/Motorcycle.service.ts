@@ -14,36 +14,36 @@ class MotorcycleService implements IService<IMotorcycle> {
     return motorcycle;
   }
   public async read(): Promise<IMotorcycle[]> {
-    const cars = await this._motorcycles.read();
+    const motorcycles = await this._motorcycles.read();
 
-    return cars;
+    return motorcycles;
   }
 
   public async readOne(id: string): Promise<IMotorcycle> {
-    const car = await this._motorcycles.readOne(id);
+    const motorcycle = await this._motorcycles.readOne(id);
 
-    if (!car) throw new Error(ErrorTypes.EntityNotFound);
+    if (!motorcycle) throw new Error(ErrorTypes.EntityNotFound);
 
-    return car;
+    return motorcycle;
   }
 
   public async update(id: string, obj: IMotorcycle): Promise<IMotorcycle | null> {
     const parsed = MotorcycleZodSchema.safeParse(obj);
     if (!parsed.success) throw parsed.error;
 
-    const foundedCar = await this._motorcycles.readOne(id);
-    if (!foundedCar) throw new Error(ErrorTypes.EntityNotFound);
+    const founded = await this._motorcycles.readOne(id);
+    if (!founded) throw new Error(ErrorTypes.EntityNotFound);
     
-    const car = await this._motorcycles.update(id, obj);
-    return car;
+    const motorcycle = await this._motorcycles.update(id, obj);
+    return motorcycle;
   }
 
   public async delete(id: string): Promise<IMotorcycle | null> {
-    const foundedCar = await this._motorcycles.readOne(id); 
-    if (!foundedCar) throw new Error(ErrorTypes.EntityNotFound);
+    const founded = await this._motorcycles.readOne(id); 
+    if (!founded) throw new Error(ErrorTypes.EntityNotFound);
 
-    const car = await this._motorcycles.delete(id);
-    return car;
+    const motorcycle = await this._motorcycles.delete(id);
+    return motorcycle;
   }
 }
 
