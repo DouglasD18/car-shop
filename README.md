@@ -1,10 +1,49 @@
-# 🚧 README em construção 🚧
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## Backend Project: Douglas Aguiar
+This is my car shop project. \o/
+Enjoy It!
+
+
+## Technology 
+
+Here are the technologies used in this project.
+
+* Typescript
+* NodeJs
+* Express
+* Docker
+* MongoDB
+* Mongoose
+* Zod
+* Dotenv
+* Ts-node
+* Chai
+* Sinon
+
+## Important
+
+ Typescript config and Dockerfiles made by Trybe.
+
+## Services Used
+
+* Github
+
+## Features
+
+The main features of the application are:
+ - Create an API of a car shop
+ - List, update, create and delete car and motorcycles
+ - Application part tests
+
+
+## Links
+
+  - Repository: https://github.com/douglasd18/car-shop/
+
+## Versioning
+
+  1.0.0
+
+
+## Authors
+
+  * **Douglas Aguiar** 
