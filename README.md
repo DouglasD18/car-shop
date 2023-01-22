@@ -1,7 +1,9 @@
-## Backend Project: Douglas Aguiar
-This is my car shop project. \o/
-Enjoy It!
+# Car Shop
 
+![Documentação da API](docs.png)
+
+# Contexto
+API com acesso a um banco MongoDb para CRUD de carros e motos.
 
 ## Technology 
 
@@ -23,10 +25,6 @@ Here are the technologies used in this project.
 
  Typescript config and Dockerfiles made by Trybe.
 
-## Services Used
-
-* Github
-
 ## Features
 
 The main features of the application are:
@@ -34,16 +32,40 @@ The main features of the application are:
  - List, update, create and delete car and motorcycles
  - Application part tests
 
+## Rodando com Docker
 
-## Links
+ * Clonando o  repositório:
 
-  - Repository: https://github.com/douglasd18/car-shop/
+  ```
+  git clone git@github.com:DouglasD18/car-shop.git
+  cd car-shop
+  ```
 
-## Versioning
+* Rodando docker-compose
+  ```
+  docker-compose up
+  ```
 
-  1.0.0
+## Rodando sem Docker
 
+### Instalando Dependências
 
-## Authors
+```bash
+npm install
+``` 
 
-  * **Douglas Aguiar** 
+### Executando aplicação
+
+* Para rodar a API:
+
+  ```
+  npm run dev
+  ```
+
+* Para rodar os testes da API:
+
+  ```
+  npm run test
+  ```
+
+Aplicação rodando na porta http://localhost:3001/
