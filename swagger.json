@@ -1,0 +1,466 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Car Shop",
+    "description": "Documentação de uma API de uma loja de veículos.",
+    "contact": {
+      "url": "https://github.com/DouglasD18",
+      "email": "daguiaralcantara@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "cars",
+      "description": "Gerenciamento dos carros"
+    },
+    {
+      "name": "motorcycles",
+      "description": "Gerenciamento das motocicletas"
+    }
+  ],
+  "paths": {
+    "/cars": {
+      "post": {
+        "description": "Rota responsável pela inserção de um novo carro.",
+        "tags": [
+          "cars"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Car"
+              },
+              "examples": {
+                "car": {
+                  "value": {
+                    "model": "Uno da Escada",
+                    "year": 1963,
+                    "color": "black",
+                    "buyValue": 7500,
+                    "seatsQty": 5,
+                    "doorsQty": 2
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Car"
+                }
+              }
+            },
+            "required": true
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      },
+      "get": {
+        "description": "Recebendo todos os carros inseridos.",
+        "tags": [
+          "cars"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Car"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      }
+    }, 
+    "/cars/:id": {
+      "get": {
+        "description": "Busca um carro pelo _id",
+        "tags": [
+          "cars"
+        ],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true
+        }],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Car"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object not found"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      },
+      "put": {
+        "description": "Faz alteração em um carro inserido",
+        "tags": [
+          "cars"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Car"
+              },
+              "examples": {
+                "car": {
+                  "value": {
+                    "model": "Uno da Escada",
+                    "year": 1961,
+                    "color": "red",
+                    "buyValue": 7500,
+                    "seatsQty": 5,
+                    "doorsQty": 2
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true
+        }],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Car"
+                }
+              }
+            },
+            "required": true
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Object not found"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "Remove um carro",
+        "tags": [
+          "cars"
+        ],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true
+        }],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Car"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object not found"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      }
+    },
+    "/motorcycles": {
+      "post": {
+        "description": "Rota responsável pela inserção de uma nova motocicleta.",
+        "tags": [
+          "motorcycles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Motorcycle"
+              },
+              "examples": {
+                "motorcycle": {
+                  "value": {
+                    "model": "CB300",
+                    "year": 2018,
+                    "color": "black",
+                    "buyValue": 3500,
+                    "category": "Custom",
+                    "engineCapacity": 2000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Motorcycle"
+                }
+              }
+            },
+            "required": true
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      },
+      "get": {
+        "description": "Recebendo todas as motocicletas inseridas.",
+        "tags": [
+          "motorcycles"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Motorcycle"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      }
+    }, 
+    "/motorcycles/:id": {
+      "get": {
+        "description": "Busca uma motocicleta pelo _id",
+        "tags": [
+          "motorcycles"
+        ],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true
+        }],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Motorcycle"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object not found"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      },
+      "put": {
+        "description": "Faz alteração em uma motocicleta inserida",
+        "tags": [
+          "motorcycles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Motorcycle"
+              },
+              "examples": {
+                "motorcycle": {
+                  "value": {
+                    "model": "CB300",
+                    "year": 2018,
+                    "color": "red",
+                    "buyValue": 3800,
+                    "category": "Custom",
+                    "engineCapacity": 2000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true
+        }],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Motorcycle"
+                }
+              }
+            },
+            "required": true
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Object not found"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "Remove uma motocicleta",
+        "tags": [
+          "motorcycles"
+        ],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true
+        }],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Car"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object not found"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Car": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "year": {
+            "type": "number"
+          },
+          "color": {
+            "type": "string"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "buyValue": {
+            "type": "number"
+          },
+          "doorsQty": {
+            "type": "number"
+          },
+          "seatsQty": {
+            "type": "number"
+          }
+        }
+      },
+      "Motorcycle": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "year": {
+            "type": "number"
+          },
+          "color": {
+            "type": "string"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "buyValue": {
+            "type": "number"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "Street",
+              "Custom",
+              "Trail"
+            ]
+          },
+          "engineCapacity": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

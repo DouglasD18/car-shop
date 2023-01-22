@@ -21,7 +21,7 @@ const errorHandler: ErrorRequestHandler = (
   }
 
   console.error(err);
-  return res.status(500).json({ message: 'internal error' });
+  return res.status(500).json({ message: 'Internal Error' });
 };
 
 export default errorHandler;
